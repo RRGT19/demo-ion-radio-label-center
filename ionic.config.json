@@ -1,0 +1,7 @@
+{
+  "name": "demo-ion-radio-label-center",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
