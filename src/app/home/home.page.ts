@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
+interface IBasicOption {
+  label: string;
+  value: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -7,6 +12,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  intentionOptions: IBasicOption[] = [
+    {label: 'Buy', value: 'bla'},
+    {label: 'Gift', value: 'bla2'}
+  ];
+
+  selection: string = '';
+
+  isChecked(item: IBasicOption): boolean {
+    return this.selection === item.value;
+  }
 
 }

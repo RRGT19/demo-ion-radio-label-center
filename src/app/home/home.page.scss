@@ -1,27 +1,60 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-color-radio-items-per-row: 2;
+  --page-color-radio-gutter: 1%;
+  --page-color-radio-width: calc((100% - (2 * var(--page-color-radio-gutter) * var(--page-color-radio-items-per-row))) / var(--page-color-radio-items-per-row));
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+.radio-tags {
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+  .radio-tag {
+    --background: white;
+    --color: #687195;
+    border: 1px solid #687195;
+    border-radius: 6px;
+    flex: 0 0 var(--page-color-radio-width);
+    max-width: var(--page-color-radio-width);
+    margin: var(--page-color-radio-gutter);
+    --min-height: 42px;
 
-  color: #8c8c8c;
+    // ion-item
+    --padding-start: 0;
+    --padding-end: 0;
+    // inner item div
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
 
-  margin: 0;
-}
+    .radio-inner-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
 
-#container a {
-  text-decoration: none;
+    &.item-checked {
+      --background: var(--ion-color-primary);
+      --color: white;
+      border: none;
+      --min-height: 44px;
+
+      ion-radio {
+        font-family: AlticeBold, Arial, sans-serif;
+      }
+    }
+
+    ion-radio::part(container) {
+      width: 0;
+      height: 0;
+      border: none;
+    }
+
+    ion-radio::part(mark) {
+      background: none;
+      transition: none;
+      transform: none;
+      border-radius: 0;
+    }
+  }
 }
